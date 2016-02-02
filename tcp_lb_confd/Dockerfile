@@ -3,8 +3,8 @@ FROM debian:jessie
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y \
-    	    haproxy
-
+    	    haproxy \
+    	    wget
 
 RUN cd /root && \
     wget https://github.com/kelseyhightower/confd/releases/download/v0.11.0/confd-0.11.0-linux-amd64 && \
