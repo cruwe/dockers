@@ -15,7 +15,7 @@ ADD confd.service /etc/systemd/system/
 COPY etc/confd/ /etc/confd/
 
 RUN for link in $(find /lib/systemd/system -type l | grep wants); do rm $link; done
-RUN for srv in haproxy.service confd.service ; do ln -sf /etc/systemd/system/$srv /etc/systemd/system/multi-user.target.wants/$srv ; done
+RUN for srv in /etc/systemd/system/confd.service /lib/systemd/system/haproxy.service; do ln -sf $srv /etc/systemd/system/multi-user.target.wants/$srv ; done
 
 VOLUME [ "/sys/fs/cgroup" ]
 CMD [ "/sbin/init" ]
