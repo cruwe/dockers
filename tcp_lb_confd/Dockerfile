@@ -15,6 +15,7 @@ RUN for link in $(find /lib/systemd/system -type l | grep wants); do rm $link; d
 
 ADD confd.service /etc/systemd/system/
 ADD journald.conf /etc/systemd/journald.conf
+ADD system.conf /etc/systemd/system.conf
 COPY etc/confd/ /etc/confd/
 
 RUN for srv in /etc/systemd/system/confd.service \
