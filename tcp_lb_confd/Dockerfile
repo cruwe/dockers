@@ -11,10 +11,11 @@ RUN cd /root && \
     chmod 744 confd-0.11.0-linux-amd64 && \
     mv confd-0.11.0-linux-amd64 /usr/bin
 
+RUN for link in $(find /lib/systemd/system -type l | grep wants); do rm $link; done
+
 ADD confd.service /etc/systemd/system/
 COPY etc/confd/ /etc/confd/
 
-RUN for link in $(find /lib/systemd/system -type l | grep wants); do rm $link; done
 RUN for srv in /etc/systemd/system/confd.service /lib/systemd/system/haproxy.service; do ln -sf $srv /etc/systemd/system/multi-user.target.wants/; done
 
 VOLUME [ "/sys/fs/cgroup" ]
