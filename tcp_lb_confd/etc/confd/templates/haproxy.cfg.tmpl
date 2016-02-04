@@ -1,6 +1,6 @@
 global
-    log /dev/stdout local0 info
-
+    log /dev/log local0 info
+    log /dev/log local1 notice
     maxconn 2000
     user haproxy
     group haproxy
