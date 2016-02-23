@@ -4,7 +4,8 @@ ENV DATA_DIR=/data
 
 RUN apk update \
  && apk add bind \
- && rm -rf /var/cache/apk/*
+ && rm -rf /var/cache/apk/* \
+ && mkdir /var/cache/bind
 
 ADD bind.tgz /etc
 
