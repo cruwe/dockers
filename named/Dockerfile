@@ -6,7 +6,7 @@ RUN apk update \
  && apk add bind \
  && rm -rf /var/cache/apk/*
 
-ADD named.conf /etc/bind/named.conf
+ADD bind.tgz /etc
 
 EXPOSE 53 53/udp
 VOLUME ["${DATA_DIR}"]
