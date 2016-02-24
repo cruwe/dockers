@@ -10,4 +10,6 @@ RUN cd /root && \
 
 COPY etc/confd/ /etc/confd/
 
+VOLUME /etc/haproxy
+
 CMD [ "/usr/bin/confd" ]
