@@ -1,9 +1,11 @@
 global
     log /dev/log local0 info
     log /dev/log local1 notice
+    pidfile /var/run/haproxy.pid
     maxconn 2000
     user haproxy
     group haproxy
+    daemon
 
 defaults
     log     global
@@ -12,9 +14,9 @@ defaults
     option  dontlognull
     retries 3
     option redispatch
-    timeout connect  5000
-    timeout client  10000
-    timeout server  10000
+    timeout connect 60
+    timeout client  60
+    timeout server  60
 
 listen appname
     bind :80

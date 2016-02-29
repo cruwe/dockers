@@ -7,3 +7,4 @@ nodes = [
 prefix = "/"
 scheme = "http"
 verbose = true
+log-level = "debug"

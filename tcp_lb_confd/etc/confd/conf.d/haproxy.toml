@@ -4,4 +4,5 @@ dest = "/etc/haproxy/haproxy.cfg"
 keys = [
         "/clusterstate/cruwe_de"
 ]
-reload_cmd = "echo reloading && haproxy -c -f /etc/haproxy/haproxy.cfg"
+check_cmd = "echo checking && haproxy -c -f {{ .src }}"
+reload_cmd = "echo reloading && haproxy -f /etc/haproxy/haproxy.cfg -p /var/run/haproxy.pid -st $(cat /var/run/haproxy.pid)"

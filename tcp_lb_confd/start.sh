@@ -9,8 +9,12 @@ do
   do
 	  case "$(pidof ${proc} | wc -w)" in
 			0)
-			if [ "$proc" == "haproxy" ]; then
-				${proc} -f /etc/haproxy/haproxy.cfg &
+			if [ "$proc" == "confd" ]; then
+				/usr/bin/confd
+			elif [ "$proc" == "haproxy" ]; then
+
+
+
 			else
 				${proc} &
 			fi
